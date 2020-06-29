@@ -1,2 +1,2 @@
 # Python-Practice
-Stuff I'm trying out I python
+Stuff I'm trying out in Python
