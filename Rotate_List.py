@@ -62,6 +62,24 @@ class Solution:
 
         # tail = findTail(head)
 
+        def count() -> int:
+            nonlocal head
+            if head is None:
+                return 0
+            elif head is not None and head.next is None:
+                return 1
+            current = head
+            previous = None
+            nextnode = None
+            count = 0
+            removed = []
+            while current is not None:        
+                count += 1 
+                previous = current 
+                nextnode = current.next 
+                current = nextnode
+            return count 
+
         def removeAndAddToHead() -> ListNode:
             nonlocal head
             if head is None or head.next is None:
@@ -75,7 +93,12 @@ class Solution:
             head = newnode
             return None
         rotations = 0
-        while rotations < k:
+        length = count()
+        if k == 0:
+            return head
+        if length == 0:
+            return head
+        while rotations < k % length:
             removeAndAddToHead()
             rotations += 1
         return head
