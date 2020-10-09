@@ -50,6 +50,7 @@ class Codec:
 
         return root
 
+# My edited solution for leet code
     #     def __init__(self):
 #         self.serial = ""
 #     def serialize(self, root: TreeNode) -> str:
@@ -89,42 +90,43 @@ class Codec:
 #             add(root, newnode)
 #         return root
 
-class Codecv2:
+# solution from leet code
+# class Codecv2:
     
-    def encode_succinct(self, node, q):
-        if not node:
-            q.append(None)
-            return
-        q.append(node.val)
-        self.encode_succinct(node.left, q)
-        self.encode_succinct(node.right, q)
+#     def encode_succinct(self, node, q):
+#         if not node:
+#             q.append(None)
+#             return
+#         q.append(node.val)
+#         self.encode_succinct(node.left, q)
+#         self.encode_succinct(node.right, q)
 
-    def serialize(self, root):
-        """Encodes a tree to a single string.
+#     def serialize(self, root):
+#         """Encodes a tree to a single string.
 
-        :type root: TreeNode
-        :rtype: str
-        """
-        q = collections.deque()
-        self.encode_succinct(root, q)
-        return q
+#         :type root: TreeNode
+#         :rtype: str
+#         """
+#         q = collections.deque()
+#         self.encode_succinct(root, q)
+#         return q
 
-    def decode_succinct(self, q):
-        b = q.popleft()
-        if b == None:
-            return None
-        n = TreeNode(b)
-        n.left = self.decode_succinct(q)
-        n.right = self.decode_succinct(q)
-        return n
+#     def decode_succinct(self, q):
+#         b = q.popleft()
+#         if b == None:
+#             return None
+#         n = TreeNode(b)
+#         n.left = self.decode_succinct(q)
+#         n.right = self.decode_succinct(q)
+#         return n
 
-    def deserialize(self, data):
-        """Decodes your encoded data to tree.
+#     def deserialize(self, data):
+#         """Decodes your encoded data to tree.
 
-        :type data: str
-        :rtype: TreeNode
-        """
-        return self.decode_succinct(data)
+#         :type data: str
+#         :rtype: TreeNode
+#         """
+#         return self.decode_succinct(data)
 
 
 
