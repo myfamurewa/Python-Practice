@@ -14,3 +14,7 @@ class Solution:
         }
         return days[dayoftheweek]
         
+def dayOfTheWeekAlt(day, month, year):
+    date = str(day) + '' + str(month) + '' + str(year)
+    day = datetime.strptime(date, '%d %m %Y').weekday()
+    return day
