@@ -4,14 +4,14 @@ def asteroidCollision(asteroids):
     i = 0
     while(i < len(asteroids)):
         if(asteroids[i]):
-            rightbound.insert(0, asteroids[i])
+            rightbound.append(asteroids[i])
         else:
-            while len(rightbound) > 0 and rightbound[0] > 0 and rightbound[0] < asteroids[i]:
-                rightbound.pop(0)
-        if len(rightbound) == 0 or rightbound[0] < 0:
-            rightbound.insert(0, asteroids[i])
-        elif rightbound[0] == abs(asteroids[i]):
-            rightbound.pop(0)
+            while len(rightbound) > 0 and rightbound[-1] > 0 and rightbound[-1] < asteroids[i]:
+                rightbound.pop()
+        if len(rightbound) == 0 or rightbound[-1] < 0:
+            rightbound.append(asteroids[i])
+        elif rightbound[-1] == abs(asteroids[i]):
+            rightbound.pop()
     return rightbound[::-1]
 
 
