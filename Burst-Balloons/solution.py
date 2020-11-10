@@ -17,7 +17,7 @@ class Solution:
                 partial_sum *= nums[left_ind + 1]
             self.caches[pointer] = partial_sum
             return partial_sum
-            
+
         max_sum = 0
         for i in range(left_ind, right_ind + 1):
             partial_sum = nums[i]
@@ -47,3 +47,4 @@ class Solution:
         return self.maxCoinsRecursive(nums, 0, self.right_upper_bound)
 
 
+# checking
